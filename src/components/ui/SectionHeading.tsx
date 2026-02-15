@@ -6,6 +6,7 @@ interface SectionHeadingProps {
   description?: string;
   align?: "left" | "center";
   className?: string;
+  dark?: boolean;
 }
 
 export function SectionHeading({
@@ -14,6 +15,7 @@ export function SectionHeading({
   description,
   align = "center",
   className,
+  dark = false,
 }: SectionHeadingProps) {
   return (
     <div
@@ -24,15 +26,30 @@ export function SectionHeading({
       )}
     >
       {label && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">
+        <p
+          className={cn(
+            "mb-4 text-sm font-semibold uppercase tracking-[0.1em]",
+            dark ? "text-accent-light" : "text-accent"
+          )}
+        >
           {label}
         </p>
       )}
-      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h2
+        className={cn(
+          "text-3xl font-bold tracking-tight sm:text-4xl",
+          dark ? "text-white" : "text-foreground"
+        )}
+      >
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-lg leading-relaxed text-muted-foreground lg:text-xl">
+        <p
+          className={cn(
+            "mt-4 text-lg leading-relaxed",
+            dark ? "text-swell-slate-400" : "text-muted-foreground"
+          )}
+        >
           {description}
         </p>
       )}

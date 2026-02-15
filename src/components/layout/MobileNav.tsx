@@ -45,7 +45,7 @@ export function MobileNav({
       {/* Backdrop */}
       {open && (
         <div
-          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-40 bg-swell-navy/60 backdrop-blur-sm lg:hidden"
           onClick={onClose}
         />
       )}
@@ -53,32 +53,32 @@ export function MobileNav({
       {/* Slide-out panel */}
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-background p-6 shadow-xl transition-transform duration-300 ease-in-out md:hidden",
+          "fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white p-6 shadow-2xl transition-transform duration-300 ease-in-out lg:hidden",
           open ? "translate-x-0" : "translate-x-full"
         )}
       >
         {/* Close button */}
         <div className="mb-8 flex items-center justify-between">
-          <span className="text-lg font-bold text-foreground">Menu</span>
+          <span className="text-lg font-bold text-swell-navy">Menu</span>
           <button
             onClick={onClose}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-foreground hover:bg-muted"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-swell-slate-600 hover:bg-swell-slate-100 hover:text-swell-navy"
             aria-label="Close menu"
           >
-            <X className="h-6 w-6" />
+            <X className="h-5 w-5" />
           </button>
         </div>
 
         <nav className="flex flex-col gap-1">
           {/* Industries */}
           <button
-            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-swell-slate-600 hover:bg-swell-slate-50 hover:text-swell-navy"
             onClick={() => setIndustriesExpanded(!industriesExpanded)}
           >
             Industries
             <ChevronDown
               className={cn(
-                "h-5 w-5 transition-transform",
+                "h-4 w-4 transition-transform",
                 industriesExpanded && "rotate-180"
               )}
             />
@@ -90,10 +90,10 @@ export function MobileNav({
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                    "rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                     pathname === item.href
-                      ? "bg-muted text-foreground"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      ? "bg-accent-50 text-accent-dark"
+                      : "text-swell-slate-500 hover:bg-swell-slate-50 hover:text-swell-navy"
                   )}
                 >
                   {item.name}
@@ -110,16 +110,16 @@ export function MobileNav({
               className={cn(
                 "rounded-lg px-3 py-3 text-base font-medium transition-colors",
                 pathname === link.href
-                  ? "bg-muted text-foreground"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  ? "bg-swell-slate-50 text-swell-navy"
+                  : "text-swell-slate-600 hover:bg-swell-slate-50 hover:text-swell-navy"
               )}
             >
               {link.name}
             </Link>
           ))}
 
-          <div className="mt-6">
-            <Button href="/get-started" className="w-full">
+          <div className="mt-6 border-t border-swell-slate-100 pt-6">
+            <Button href="/get-started" variant="accent" className="w-full">
               Get Started
             </Button>
           </div>

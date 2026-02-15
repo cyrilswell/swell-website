@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "outline" | "accent";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps {
@@ -19,19 +19,21 @@ interface ButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-swell-black text-swell-white hover:bg-swell-gray-800 active:bg-swell-gray-700",
+    "bg-swell-navy text-white hover:bg-swell-slate-800 active:bg-swell-slate-700",
   secondary:
-    "bg-swell-white text-swell-black border border-swell-gray-200 hover:bg-swell-gray-50 active:bg-swell-gray-100",
+    "bg-white text-swell-navy border border-swell-slate-200 hover:border-swell-slate-300 hover:bg-swell-slate-50 active:bg-swell-slate-100",
   ghost:
-    "text-swell-gray-600 hover:text-swell-black hover:bg-swell-gray-50",
+    "text-swell-slate-600 hover:text-swell-navy hover:bg-swell-slate-100",
   outline:
-    "border border-swell-black text-swell-black hover:bg-swell-black hover:text-swell-white",
+    "border border-swell-slate-300 text-swell-navy hover:bg-swell-slate-50 hover:border-swell-slate-400",
+  accent:
+    "bg-accent text-white hover:bg-accent-dark active:bg-swell-slate-700 shadow-sm shadow-accent/25",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg",
+  sm: "h-9 px-4 text-sm gap-1.5",
+  md: "h-11 px-6 text-sm gap-2",
+  lg: "h-12 px-8 text-base gap-2",
 };
 
 export function Button({
@@ -45,7 +47,7 @@ export function Button({
   onClick,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center rounded-full font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-50 disabled:pointer-events-none",
+    "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap",
     variants[variant],
     sizes[size],
     className

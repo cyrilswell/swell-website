@@ -5,35 +5,40 @@ import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Explore our portfolio of case studies across FinTech and E-commerce.",
+  description:
+    "Explore our portfolio of case studies across FinTech and E-commerce.",
 };
 
 // Placeholder data until Sanity is connected
 const placeholderWork = [
   {
     title: "NeoBank Dashboard",
-    description: "A full-service digital banking experience for a Series B fintech.",
+    description:
+      "A full-service digital banking experience for a Series B fintech.",
     image: "/images/placeholder-work-1.jpg",
     tag: "FinTech",
     href: "/work/neobank-dashboard",
   },
   {
     title: "Luxury Marketplace",
-    description: "End-to-end e-commerce platform for a luxury fashion brand.",
+    description:
+      "End-to-end e-commerce platform for a luxury fashion brand.",
     image: "/images/placeholder-work-2.jpg",
     tag: "E-commerce",
     href: "/work/luxury-marketplace",
   },
   {
     title: "Payment Gateway",
-    description: "Redesigned checkout flow that increased conversion by 34%.",
+    description:
+      "Redesigned checkout flow that increased conversion by 34%.",
     image: "/images/placeholder-work-3.jpg",
     tag: "FinTech",
     href: "/work/payment-gateway",
   },
   {
     title: "Subscription Box Platform",
-    description: "Subscription commerce platform with smart retention features.",
+    description:
+      "Subscription commerce platform with smart retention features.",
     image: "/images/placeholder-work-4.jpg",
     tag: "E-commerce",
     href: "/work/subscription-box",
@@ -48,16 +53,23 @@ export default async function WorkPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-swell-black py-24 text-swell-white lg:py-32">
-        <Container>
+      <section className="relative overflow-hidden bg-hero pt-32 pb-24 lg:pt-40 lg:pb-32">
+        <div className="absolute inset-0 bg-dot-pattern opacity-[0.03]" />
+        <div className="absolute -bottom-20 right-0 h-60 w-60 rounded-full bg-accent/10 blur-[100px]" />
+
+        <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-swell-gray-400">
-              Our Work
-            </p>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            <div className="mb-6 flex items-center justify-center gap-2">
+              <div className="h-px w-8 bg-accent" />
+              <span className="text-sm font-medium tracking-wide text-accent-light">
+                Our Work
+              </span>
+              <div className="h-px w-8 bg-accent" />
+            </div>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Projects we&apos;re proud of
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-swell-gray-400">
+            <p className="mt-6 text-lg leading-relaxed text-swell-slate-400">
               A selection of case studies showcasing our work across industries.
             </p>
           </div>
@@ -67,7 +79,7 @@ export default async function WorkPage() {
       {/* Case Studies Grid */}
       <section className="py-24 lg:py-32">
         <Container>
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2">
             {caseStudies.map((cs) => (
               <Card
                 key={cs.title}
