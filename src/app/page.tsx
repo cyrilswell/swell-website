@@ -5,48 +5,103 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { ArrowRight, ArrowUpRight, Lightbulb, Palette, Code2, TrendingUp } from "lucide-react";
 
-/* ── Hero ── */
+/* ── Hero (Figma pixel-perfect) ── */
+const heroStats = [
+  { value: "41%+", label: "increase in new markets" },
+  { value: "28+", label: "new territories" },
+  { value: "64%+", label: "ROI increase" },
+];
+
 function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-hero">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 bg-dot-pattern opacity-[0.03]" />
-      <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-accent/10 blur-[100px]" />
-      <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-accent/5 blur-[100px]" />
+    <section className="relative min-h-[100vh] flex flex-col overflow-hidden bg-hero-figma">
+      {/* Subtle dot pattern overlay */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-[0.04]" aria-hidden />
 
-      <Container className="relative z-10 py-32 lg:py-40">
-        <div className="mx-auto max-w-4xl">
-          <div className="flex items-center gap-2 mb-8">
-            <div className="h-px w-8 bg-accent" />
-            <span className="text-sm font-medium tracking-wide text-accent-light">
-              Digital Product Studio
-            </span>
+      <Container className="relative z-10 flex flex-1 flex-col justify-center pt-28 pb-20 lg:pt-36 lg:pb-24">
+        <div className="grid gap-12 lg:grid-cols-[1fr,minmax(380px,1fr)] lg:gap-16 xl:gap-20 lg:items-center">
+          {/* Left: copy + CTA + stats */}
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-swell-slate-400 lg:text-sm">
+              AN AI-POWERED GROWTH PARTNER
+            </p>
+            <h1 className="mt-4 text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[3.5rem] xl:leading-[1.1]">
+              Delivering predictable growth for high-performing brands expanding into new markets
+            </h1>
+            <p className="mt-5 text-base font-medium uppercase tracking-wide text-swell-slate-400 lg:text-lg">
+              We help brands achieve sustainable growth and market expansion
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button
+                href="/get-started"
+                size="lg"
+                className="h-12 rounded-lg bg-[#0f172a] px-8 text-base font-semibold text-white shadow-lg hover:bg-swell-slate-800"
+              >
+                BOOK A DEMO
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button
+                href="/get-started"
+                size="lg"
+                variant="ghost"
+                className="h-12 rounded-lg border border-white/40 bg-transparent px-8 text-base font-semibold text-white hover:bg-white/10 hover:border-white/60"
+              >
+                Let&apos;s talk
+              </Button>
+            </div>
+            <p className="mt-6 text-sm text-swell-slate-400">
+              100+ Brands Trust Swell
+            </p>
+            <dl className="mt-10 grid grid-cols-3 gap-8 border-t border-white/10 pt-10">
+              {heroStats.map((stat) => (
+                <div key={stat.label}>
+                  <dt className="text-3xl font-bold tracking-tight text-white lg:text-4xl">
+                    {stat.value}
+                  </dt>
+                  <dd className="mt-1 text-sm text-swell-slate-400">
+                    {stat.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-7xl">
-            We build digital products that{" "}
-            <span className="text-gradient">drive growth</span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-swell-slate-400 lg:text-xl">
-            Swell is a design and engineering studio helping FinTech and
-            E-commerce companies ship world-class digital experiences.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button href="/get-started" size="lg" variant="accent">
-              Get Started
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-            <Button
-              href="/work"
-              size="lg"
-              variant="ghost"
-              className="text-swell-slate-300 hover:text-white hover:bg-white/5"
-            >
-              View Our Work
-              <ArrowUpRight className="h-4 w-4" />
-            </Button>
+          {/* Right: 3D tree visual + testimonial card */}
+          <div className="relative flex flex-col items-center gap-6 lg:items-end">
+            {/* Placeholder for 3D tree/root asset – replace with exported image from Figma */}
+            <div className="relative h-[280px] w-full max-w-md lg:h-[320px] lg:max-w-lg">
+              <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-swell-slate-800/40 ring-1 ring-white/5">
+                <div className="h-[200px] w-[160px] rounded-lg bg-gradient-to-b from-swell-slate-700/60 to-swell-slate-800/80 shadow-2xl" aria-hidden>
+                  {/* Abstract tree/root silhouette placeholder */}
+                  <svg viewBox="0 0 160 200" className="h-full w-full rounded-lg opacity-90" fill="none" aria-hidden>
+                    <path
+                      d="M80 200 V80 Q80 40 50 20 L80 0 M80 80 Q80 40 110 20 L80 0 M80 200 L40 120 M80 200 L120 120 M80 120 L60 80 M80 120 L100 80"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="text-swell-slate-500"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            {/* Testimonial card */}
+            <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm lg:max-w-[340px]">
+              <div className="flex gap-1" aria-label="5 out of 5 stars">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <span key={i} className="h-2 w-2 rounded-full bg-swell-slate-500" />
+                ))}
+              </div>
+              <blockquote className="mt-4 text-sm leading-relaxed text-swell-slate-300">
+                &ldquo;Swell has transformed our online presence and marketing strategy. Their data-driven approach is truly revolutionary.&rdquo;
+              </blockquote>
+              <div className="mt-4 flex items-center gap-3">
+                <div className="h-10 w-10 shrink-0 rounded-full bg-swell-slate-600" aria-hidden />
+                <div>
+                  <p className="text-sm font-semibold text-white">Alex Martinez</p>
+                  <p className="text-xs text-swell-slate-400">VP of Growth, Company name</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </Container>

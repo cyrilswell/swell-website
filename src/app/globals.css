@@ -37,6 +37,8 @@
 
   /* Gradients */
   --gradient-hero: linear-gradient(145deg, #0B1120 0%, #152238 50%, #0F172A 100%);
+  /* Hero: dark top-left to lighter bottom-right (Figma) */
+  --gradient-hero-figma: linear-gradient(152deg, #0B1120 0%, #0f172a 35%, #152238 65%, #1e293b 100%);
   --gradient-accent: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
   --gradient-card: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(248,250,252,1) 100%);
 }
@@ -104,6 +106,10 @@ body {
 
 .bg-hero {
   background: var(--gradient-hero);
+}
+
+.bg-hero-figma {
+  background: var(--gradient-hero-figma);
 }
 
 .bg-dot-pattern {
