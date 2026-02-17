@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/Button";
 import { MobileNav } from "./MobileNav";
 
 const industries = [
@@ -127,17 +126,17 @@ export function Header() {
 
         {/* CTA + Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <Button
+          <Link
             href="/get-started"
-            size="sm"
-            variant={scrolled ? "accent" : "secondary"}
             className={cn(
-              "hidden lg:inline-flex",
-              !scrolled && "border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:border-white/30"
+              "hidden lg:inline-flex h-9 items-center justify-center rounded-lg px-4 text-sm font-medium transition-colors",
+              scrolled
+                ? "bg-accent text-white hover:bg-accent-dark"
+                : "bg-hero-btn-primary text-white hover:bg-swell-slate-800"
             )}
           >
             Get Started
-          </Button>
+          </Link>
 
           {/* Mobile hamburger */}
           <button

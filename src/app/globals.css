@@ -35,15 +35,27 @@
   --accent: var(--swell-accent);
   --ring: var(--swell-accent);
 
+  /* Hero (Figma pixel-perfect) */
+  --hero-bg: #1A1E29;
+  --hero-btn-primary: #0f172a;
+  --hero-btn-secondary-bg: #E2E8F0;
+  --hero-btn-secondary-text: #0f172a;
+  --hero-btn-secondary-border: #CBD5E1;
+  --hero-btn-secondary-hover: #F1F5F9;
+
   /* Gradients */
   --gradient-hero: linear-gradient(145deg, #0B1120 0%, #152238 50%, #0F172A 100%);
-  /* Hero: dark top-left to lighter bottom-right (Figma) */
-  --gradient-hero-figma: linear-gradient(152deg, #0B1120 0%, #0f172a 35%, #152238 65%, #1e293b 100%);
   --gradient-accent: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
   --gradient-card: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(248,250,252,1) 100%);
 }
 
 @theme inline {
+  --color-hero-bg: var(--hero-bg);
+  --color-hero-btn-primary: var(--hero-btn-primary);
+  --color-hero-btn-secondary: var(--hero-btn-secondary-bg);
+  --color-hero-btn-secondary-text: var(--hero-btn-secondary-text);
+  --color-hero-btn-secondary-border: var(--hero-btn-secondary-border);
+  --color-hero-btn-secondary-hover: var(--hero-btn-secondary-hover);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
@@ -108,8 +120,8 @@ body {
   background: var(--gradient-hero);
 }
 
-.bg-hero-figma {
-  background: var(--gradient-hero-figma);
+.bg-hero-solid {
+  background: var(--hero-bg);
 }
 
 .bg-dot-pattern {
